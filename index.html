@@ -38,7 +38,15 @@ button{font:inherit}
 .answer{width:100%;text-align:left;background:#22252b;color:#fff;border:1px solid #343740;border-radius:15px;padding:15px;white-space:pre-line;cursor:pointer}
 .answer:hover{background:#292d35}
 .result-image{width:100%;object-fit:cover;object-position:center;border-radius:17px;border:1px solid #30333b}
-.result-image-top{aspect-ratio:16/10;max-height:320px;margin:0 0 18px}
+.result-image-top{
+  width:min(100%,320px);
+  height:auto;
+  max-height:none;
+  aspect-ratio:auto;
+  object-fit:contain;
+  display:block;
+  margin:0 auto 20px;
+}
 .result-eyebrow{margin-top:2px}
 .result-name{font-size:29px;line-height:1.2;margin-bottom:10px}
 .result-desc{margin-bottom:16px}
