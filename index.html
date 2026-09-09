@@ -1,307 +1,56 @@
 <!doctype html>
 <html lang="ko">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>쫄도 다 같은 쫄이 아니다 | 방탈출 공포 유형 테스트</title>
-<meta name="description" content="삑딱쿵, 창공, 추격, 독립구간, NPC 대면. 10개의 상황으로 알아보는 나의 방탈출 공포 프로필.">
-<meta name="theme-color" content="#f7f4ef">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
-<meta property="og:type" content="website">
-<meta property="og:title" content="쫄도 다 같은 쫄이 아니다 | 방탈출 공포 유형 테스트">
-<meta property="og:description" content="나는 정확히 무엇에 쫄까? 10개의 상황으로 알아보는 나의 방탈출 공포 프로필.">
-<meta property="og:image" content="https://youtubuhi.github.io/escape-fear-test/og-image.jpg">
-<meta property="og:url" content="https://youtubuhi.github.io/escape-fear-test/">
-<meta property="og:site_name" content="방탈출 인간연구소">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://youtubuhi.github.io/escape-fear-test/og-image.jpg">
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-3GZCCVZ8W0"></script>
-<script>
-window.dataLayer=window.dataLayer||[];
-function gtag(){dataLayer.push(arguments)}
-gtag('js',new Date());
-gtag('config','G-3GZCCVZ8W0');
-</script>
-
+<meta name="description" content="삑딱쿵, 창공, 추격, 독립구간, NPC 대면 중 나는 어떤 공포에 가장 약할까?">
+<meta property="og:type" content="website"><meta property="og:title" content="쫄도 다 같은 쫄이 아니다 | 방탈출 공포 유형 테스트">
+<meta property="og:description" content="삑딱쿵, 창공, 추격, 독립구간, NPC 대면 중 나는 어떤 공포에 가장 약할까?">
+<meta property="og:image" content="https://youtubuhi.github.io/escape-fear-test/og-image.jpg"><meta property="og:url" content="https://youtubuhi.github.io/escape-fear-test/">
+<meta property="og:site_name" content="방탈출 인간연구소"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://youtubuhi.github.io/escape-fear-test/og-image.jpg">
 <style>
-:root{
-  --paper:#f7f4ef;
-  --paper-2:#efeae2;
-  --ink:#171514;
-  --muted:#706b66;
-  --line:#d9d2c9;
-  --red:#b4232d;
-  --red-dark:#8f1721;
-  --red-soft:#f3e4e5;
-  --white:#fffdfa;
-  --max:560px;
-}
-*{box-sizing:border-box}
-html{background:var(--paper)}
-body{
-  margin:0;background:var(--paper);color:var(--ink);
-  font-family:"Pretendard Variable","Pretendard","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
-  -webkit-font-smoothing:antialiased;
-}
-button{font:inherit}
-.shell{max-width:var(--max);margin:0 auto;min-height:100dvh;padding:0 20px 40px}
-.screen{display:none;animation:fade .22s ease}
-.screen.active{display:block}
-@keyframes fade{from{opacity:.25;transform:translateY(4px)}to{opacity:1;transform:none}}
-.kicker{font-size:11px;font-weight:800;letter-spacing:.16em;color:var(--red);text-transform:uppercase}
-.brand{display:flex;align-items:center;justify-content:space-between;padding:20px 0 14px;border-bottom:1px solid var(--line)}
-.brand-name{font-size:13px;font-weight:850;letter-spacing:-.02em}
-.brand-code{font-size:11px;color:var(--muted);letter-spacing:.08em}
-.hero{padding:30px 0 12px}
-.hero h1{font-size:46px;line-height:1.02;letter-spacing:-.065em;margin:10px 0 15px;font-weight:900}
-.hero h1 em{font-style:normal;color:var(--red)}
-.hero-sub{font-size:18px;line-height:1.5;letter-spacing:-.03em;margin:0 0 18px;font-weight:650}
-.hero-copy{font-size:14px;line-height:1.65;color:var(--muted);margin:0}
-.hero-image{width:100%;display:block;border-radius:18px;margin:22px 0 18px;border:1px solid var(--line)}
-.meta{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 22px}
-.pill{border:1px solid var(--line);background:var(--white);padding:8px 11px;border-radius:999px;font-size:12px;font-weight:700;color:#4f4a46}
-.cta{width:100%;border:0;border-radius:13px;padding:17px 18px;background:var(--red);color:white;font-weight:850;font-size:16px;cursor:pointer;transition:.15s}
-.cta:active{transform:scale(.985);background:var(--red-dark)}
-.secondary{width:100%;border:1px solid var(--line);border-radius:13px;padding:14px 18px;background:transparent;color:var(--ink);font-weight:750;margin-top:9px;cursor:pointer}
-.small-note{font-size:11px;color:#908a84;text-align:center;margin-top:13px}
-/* quiz */
-.quiz-top{position:sticky;top:0;z-index:3;background:color-mix(in srgb,var(--paper) 94%, transparent);backdrop-filter:blur(10px);padding:16px 0 10px}
-.progress-row{display:flex;align-items:end;justify-content:space-between;margin-bottom:9px}
-.step-big{font-size:28px;line-height:1;font-weight:900;letter-spacing:-.05em}
-.step-big span{font-size:13px;color:var(--muted);font-weight:600}
-.progress-track{height:3px;background:#ddd6ce}
-.progress-fill{height:100%;width:0;background:var(--red);transition:width .25s ease}
-.q-wrap{padding:10px 0 20px}
-.q-img{width:100%;aspect-ratio:1200/630;object-fit:cover;border-radius:15px;display:block;border:1px solid var(--line);margin-bottom:16px}
-.q-title{font-size:20px;line-height:1.45;letter-spacing:-.035em;font-weight:850;margin:0 0 14px}
-.answer-list{border-top:1px solid var(--line)}
-.answer{display:grid;grid-template-columns:30px 1fr;gap:7px;width:100%;text-align:left;border:0;border-bottom:1px solid var(--line);background:transparent;color:var(--ink);padding:12px 4px;cursor:pointer;transition:.13s}
-.answer:hover{background:#f1ece5}
-.answer.selected{background:var(--red-soft);color:var(--red-dark)}
-.answer-no{font-size:11px;color:var(--red);font-weight:900;padding-top:2px}
-.answer-text{white-space:pre-line;font-size:13px;line-height:1.42;letter-spacing:-.02em}
-/* result */
-.result-head{padding:22px 0 12px}
-.result-poster{display:block;width:min(100%,370px);height:auto;margin:0 auto 30px;border-radius:18px;box-shadow:0 12px 30px rgba(25,18,15,.12)}
-.result-index{font-size:11px;color:var(--red);font-weight:900;letter-spacing:.14em}
-.result-name{font-size:38px;line-height:1.08;letter-spacing:-.055em;margin:9px 0 8px;font-weight:920}
-.tagline{font-size:17px;line-height:1.48;font-weight:700;color:#47423e;margin:0 0 28px}
-.section{padding:28px 0;border-top:1px solid var(--line)}
-.section-title{font-size:12px;font-weight:900;letter-spacing:.08em;margin:0 0 18px;color:#514b46}
-.score-row{display:grid;grid-template-columns:82px 1fr 38px;align-items:center;gap:10px;margin:13px 0}
-.score-label{font-size:12px;font-weight:750}
-.score-track{height:5px;background:#ded7cf;overflow:hidden;border-radius:99px}
-.score-fill{height:100%;background:var(--red);border-radius:99px;transition:width .55s ease}
-.score-num{font-size:14px;font-weight:900;text-align:right}
-.real-scene{background:var(--red-soft);padding:18px;border-radius:14px;font-size:14px;line-height:1.7;font-weight:680;letter-spacing:-.025em}
-.detail{white-space:pre-line;font-size:14px;line-height:1.9;color:#3f3b38;letter-spacing:-.025em}
-.share-stack{padding:28px 0 6px;border-top:1px solid var(--line)}
-.footer{padding:24px 0 8px;color:#9d9690;text-align:center;font-size:10px;letter-spacing:.13em}
-@media(max-width:600px){
-  .shell{padding:0 14px 24px}
-  .brand{padding:14px 0 11px}
-  .hero{padding-top:22px}
-  .hero h1{font-size:39px}
-  .hero-sub{font-size:16px}
-  .hero-image{margin:17px 0 14px;border-radius:14px}
-  .meta{margin-bottom:16px}
-  .pill{font-size:11px;padding:7px 9px}
-  .cta{padding:14px 16px;font-size:14px}
-  .secondary{padding:12px 15px;font-size:13px}
-  .quiz-top{padding:10px 0 7px}
-  .step-big{font-size:22px}
-  .q-wrap{padding-top:7px}
-  .q-img{max-height:145px;margin-bottom:9px;border-radius:11px}
-  .q-title{font-size:14px;line-height:1.4;margin-bottom:7px}
-  .answer{grid-template-columns:25px 1fr;padding:7px 3px}
-  .answer-no{font-size:10px}
-  .answer-text{font-size:11.5px;line-height:1.28}
-  .result-poster{width:min(100%,330px);margin-bottom:24px}
-  .result-name{font-size:31px}
-  .tagline{font-size:15px;margin-bottom:22px}
-  .section{padding:22px 0}
-  .detail{font-size:13.5px;line-height:1.82}
-}
-</style>
-</head>
-<body>
-<main class="shell">
-  <header class="brand">
-    <div class="brand-name">방탈출 인간연구소</div>
-    <div class="brand-code">TEST 001</div>
-  </header>
-
-  <section id="start" class="screen active">
-    <div class="hero">
-      <div class="kicker">HORROR PROFILE</div>
-      <h1>쫄도 다 같은<br><em>쫄이 아니다.</em></h1>
-      <p class="hero-sub">당신이 진짜 약한 공포는?</p>
-      <p class="hero-copy">갑툭튀는 괜찮은데 창공은 못 견디는 사람,<br>귀신은 괜찮은데 혼자는 절대 못 가는 사람.<br>10개의 상황으로 나의 공포 프로필을 확인해보세요.</p>
-      <img src="og-image.jpg" class="hero-image" alt="쫄도 다 같은 쫄이 아니다">
-      <div class="meta"><span class="pill">10문항</span><span class="pill">약 2분</span><span class="pill">7가지 결과</span></div>
-      <button class="cta" onclick="beginTest()">내 공포 유형 알아보기 →</button>
-      <button class="secondary" onclick="shareTest()">친구에게 테스트 공유하기</button>
-      <div class="small-note">질문과 선택지는 매번 랜덤으로 섞입니다.</div>
-    </div>
-  </section>
-
-  <section id="quiz" class="screen">
-    <div class="quiz-top">
-      <div class="progress-row"><div class="step-big"><b id="step">01</b> <span>/ 10</span></div><div class="kicker">HORROR CHECK</div></div>
-      <div class="progress-track"><div id="progress" class="progress-fill"></div></div>
-    </div>
-    <div class="q-wrap">
-      <img id="qImage" class="q-img" alt="">
-      <h2 id="qText" class="q-title"></h2>
-      <div id="answerList" class="answer-list"></div>
-    </div>
-  </section>
-
-  <section id="result" class="screen">
-    <div class="result-head">
-      <img id="resultPoster" class="result-poster" alt="">
-      <div id="resultIndex" class="result-index">RESULT</div>
-      <h2 id="resultName" class="result-name"></h2>
-      <p id="resultTagline" class="tagline"></p>
-    </div>
-
-    <section class="section">
-      <h3 class="section-title">MY HORROR PROFILE</h3>
-      <div id="scores"></div>
-    </section>
-
-    <section class="section">
-      <h3 class="section-title">실전에서는 이렇습니다</h3>
-      <div id="sceneCopy" class="real-scene"></div>
-    </section>
-
-    <section class="section">
-      <h3 class="section-title">유형 분석</h3>
-      <div id="detailCopy" class="detail"></div>
-    </section>
-
-    <div class="share-stack">
-      <button class="cta" onclick="shareResult()">내 결과 공유하기 →</button>
-      <button class="secondary" onclick="shareTest()">테스트 공유하기</button>
-      <button class="secondary" onclick="resetTest()">다시 하기</button>
-      <div class="small-note">친구 결과랑 비교해보면 더 재밌습니다.</div>
-    </div>
-  </section>
-
-  <footer class="footer">ESCAPE PLAYER LAB · 방탈출 인간연구소</footer>
-</main>
-
+:root{--bg:#f5f1eb;--ink:#151515;--muted:#77716b;--line:#d9d1c8;--red:#b7202c;--soft:#f2dede}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,"Apple SD Gothic Neo","Noto Sans KR",sans-serif}
+.app{width:min(100%,760px);margin:auto;padding:22px 28px 70px}button{font:inherit}.hidden{display:none!important}
+.brandbar{display:flex;justify-content:space-between;align-items:center;font-weight:800;font-size:15px;margin-bottom:18px}.testno{font-weight:500;color:#777;letter-spacing:.12em}
+.rule{height:1px;background:var(--line);margin-bottom:22px}.start-image{width:100%;height:auto;display:block;border:1px solid #ddd3cb;margin-bottom:22px}
+.kicker{font-size:13px;letter-spacing:.16em;color:var(--red);font-weight:900;margin-bottom:10px}h1{font-size:38px;line-height:1.08;margin:0 0 14px;letter-spacing:-.055em}
+.start-desc{font-size:17px;line-height:1.65;margin:0 0 18px}.meta{display:flex;gap:18px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:13px 0;margin:18px 0 20px;font-size:13px;color:#5e5954}
+.btn{width:100%;border-radius:16px;border:1px solid var(--line);padding:16px 18px;font-weight:800;cursor:pointer;margin-top:10px;background:#faf7f2;color:var(--ink)}.btn.primary{background:var(--red);border-color:var(--red);color:white}
+.quiz-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:10px}.qnum{font-size:31px;font-weight:900;letter-spacing:-.05em}.qnum small{font-size:17px;font-weight:500;color:#59544f}
+.horror{font-size:13px;letter-spacing:.18em;color:var(--red);font-weight:900}.progress{height:4px;background:#e4ddd5;margin:0 0 22px;overflow:hidden}.progress>div{height:100%;background:var(--red);transition:width .2s}
+.qimage{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;border:1px solid #d6cec5;margin-bottom:18px}.question{font-size:22px;line-height:1.45;font-weight:850;letter-spacing:-.035em;margin-bottom:12px}
+.answers{border-top:1px solid var(--line)}.answer{width:100%;display:grid;grid-template-columns:46px 1fr;gap:10px;text-align:left;border:0;border-bottom:1px solid var(--line);background:transparent;padding:14px 3px 14px 0;cursor:pointer;color:var(--ink)}
+.answer-no{color:var(--red);font-size:14px;font-weight:900;padding-top:2px}.answer-text{white-space:pre-line;font-size:17px;line-height:1.48;letter-spacing:-.025em}.answer:hover{background:#efe9e2}
+.labfoot{text-align:center;color:#aaa19a;letter-spacing:.14em;font-size:11px;margin-top:34px}
+.result-image{display:block;width:min(100%,360px);height:auto;margin:0 auto 24px;border:1px solid #d3cbc2}.result-kicker{font-size:12px;letter-spacing:.16em;color:#777;margin-bottom:10px}
+.result-title{font-size:32px;line-height:1.12;margin:0 0 8px;letter-spacing:-.05em}.result-one{font-size:17px;line-height:1.58;color:#45413d;margin:0 0 18px}
+.score-box{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:16px 0;margin:16px 0 22px}.score{margin:12px 0}.score-top{display:flex;justify-content:space-between;font-size:15px;margin-bottom:6px}.score-top strong{font-size:18px}
+.meter{height:7px;background:#ded7cf;overflow:hidden}.fill{height:100%;background:var(--red)}.example{background:var(--soft);border-radius:18px;padding:18px 20px;font-size:16px;line-height:1.65;margin:22px 0 28px}
+.section-title{font-size:16px;font-weight:900;margin:0 0 16px}.analysis p{font-size:17px;line-height:1.8;margin:0 0 20px;letter-spacing:-.02em}.closing{font-weight:800}
+.share-actions{border-top:1px solid var(--line);padding-top:18px;margin-top:30px}.share-help{font-size:12px;color:var(--muted);text-align:center;margin-top:10px;line-height:1.5}
+@media(max-width:520px){.app{padding:18px 18px 64px}h1{font-size:35px}.start-desc{font-size:16px}.qnum{font-size:29px}.question{font-size:20px;line-height:1.43}.answer{grid-template-columns:40px 1fr;padding:13px 2px 13px 0}.answer-text{font-size:17px;line-height:1.46}.result-title{font-size:30px}.analysis p{font-size:16.8px;line-height:1.78}}
+</style></head>
+<body><div class="app">
+<div class="brandbar"><span>방탈출 인간연구소</span><span class="testno">TEST 001</span></div><div class="rule"></div>
+<section id="start"><img class="start-image" src="og-image.jpg" alt="쫄도 다 같은 쫄이 아니다"><div class="kicker">HORROR PLAYER CHECK</div><h1>나는 쫄일까,<br>탱일까?</h1><p class="start-desc">10개의 방탈출 상황에서 가장 나다운 행동을 골라보세요. 단순한 쫄·탱보다, 어떤 공포에 특히 약한지 나눠봅니다.</p><div class="meta"><span>10문항</span><span>약 1분</span><span>결과 7종</span></div><button class="btn primary" onclick="begin()">테스트 시작</button><button class="btn" onclick="shareTest()">친구에게 테스트 공유하기</button></section>
+<section id="quiz" class="hidden"><div class="quiz-head"><div id="qnum" class="qnum"></div><div class="horror">HORROR CHECK</div></div><div class="progress"><div id="bar"></div></div><img id="qimage" class="qimage" alt=""><div id="question" class="question"></div><div id="answers" class="answers"></div><div class="labfoot">ESCAPE PLAYER LAB · 방탈출 인간연구소</div></section>
+<section id="result" class="hidden"><img id="resultImage" class="result-image" alt=""><div class="result-kicker">방탈출 인간연구소 · RESULT</div><h2 id="resultTitle" class="result-title"></h2><p id="resultOne" class="result-one"></p><div id="scoreList" class="score-box"></div><div id="example" class="example"></div><div class="section-title">유형 분석</div><div id="analysis" class="analysis"></div><div class="share-actions"><button class="btn primary" onclick="shareResultCard()">내 결과 공유하기</button><button class="btn" onclick="shareTest()">테스트 공유하기</button><button class="btn" onclick="resetTest()">다시 하기</button><div class="share-help">모바일에서는 결과 카드 이미지 + 링크 공유를 시도합니다. 지원되지 않는 환경에서는 결과 이미지 저장 + 링크 복사로 전환됩니다.</div></div></section>
+</div>
 <script>
-const QUESTIONS=[{"id": 1, "axis": "삑딱쿵", "image": "images/q1.jpg", "text": "오래된 일기장을 발견했다. 마지막 페이지를 펼치는 순간, 바로 옆에서 갑자기 “쾅!” 하는 큰 소리가 난다.", "answers": [{"text": "“뭐야?”\\n하고 소리 난 쪽부터 확인함.", "score": 1}, {"text": "“아 깜짝아;”\\n놀란 건 놀란 거고 문제는 풀어야지.", "score": 2}, {"text": "“악!!! 뭐야!!!”\\n놀란 가슴 진정시키느라 일기장 내용은 이미 까먹음.", "score": 3}, {"text": "“으아아아악!!!!!”\\n일기장은 이미 바닥에 있고 나는 일행 뒤에 있음.", "score": 4}]}, {"id": 2, "axis": "삑딱쿵", "image": "images/q2.jpg", "text": "벽에 걸린 가족사진에서 이상한 점을 찾으라는 문제가 나왔다. 사진에 얼굴을 가까이 대고 살펴보는 순간, 사진 속 인물이 갑자기 움직인다.", "answers": [{"text": "“오 움직인다.”\\n이상한 점 찾았다고 좋아함.", "score": 1}, {"text": "“어우 씨 깜짝아;;”\\n한 발 물러났다가 다시 얼굴 들이밀고 관찰함.", "score": 2}, {"text": "“악!! 얘 움직여!!!”\\n발견은 내가 했지만 확인은 일행한테 시킴.", "score": 3}, {"text": "“으아아악!!! 사진이 움직여!!!!”\\n이제 이상한 점이고 뭐고 저 사진 근처에 안 감.", "score": 4}]}, {"id": 3, "axis": "창공", "image": "images/q3.jpg", "text": "자물쇠를 열자 방 전체의 불이 갑자기 꺼진다. 그런데 10초가 지나도 아무 일도 일어나지 않고, 다음 안내도 나오지 않는다.", "answers": [{"text": "“그래서 불 언제 켜지는데…”\\n슬슬 지루해지기 시작함.", "score": 1}, {"text": "“뭐 나오려나?”\\n무섭다기보단 연출 시작한 것 같아서 은근 기대 중.", "score": 2}, {"text": "“아니 이게 더 싫어… 뭐 나올 거잖아…”\\n아무것도 안 나왔는데 이미 일행 옆에 딱 붙어 있음.", "score": 3}, {"text": "“뭐야 뭐야 뭐야 왜 아무것도 안 해!!!!”\\n차라리 뭐라도 빨리 나오라고 하면서 일행 붙잡고 덜덜 떠는 중.", "score": 4}]}, {"id": 4, "axis": "창공", "image": "images/q4.jpg", "text": "문을 열었더니 끝이 잘 보이지 않는 어두운 복도가 나온다. 저 멀리 작은 조명 하나만 켜져 있고, 그곳까지 직접 걸어가야 한다.", "answers": [{"text": "“저기 가라는 건가?”\\n이미 복도 절반쯤 가 있음.", "score": 1}, {"text": "“와 여기 뭐 나오기 딱 좋게 생겼네.”\\n경계는 하는데 발은 계속 앞으로 감.", "score": 2}, {"text": "“잠깐만… 이걸 그냥 가라고?”\\n갑자기 누가 앞장설지 공평한 가위바위보를 제안함.", "score": 3}, {"text": "“난 절대 앞에는 못 가. 뒤에도 못 가.”\\n탱 두 명 사이에 끼워달라고 해서 인간 샌드위치 완성.", "score": 4}]}, {"id": 5, "axis": "추격", "image": "images/q5.jpg", "text": "복도를 지나던 중 뒤쪽 문이 벌컥 열린다. NPC가 당신들을 발견하고 전력으로 쫓아오기 시작한다. 앞에 보이는 문까지 뛰어가야 한다.", "answers": [{"text": "“어? 뛰어야 돼?”\\nNPC보다 일행들이 갑자기 뛰어서 같이 뛰기 시작함.", "score": 1}, {"text": "“어어 온다 온다!!”\\n무섭긴 한데 이런 게 공포방이지ㅋㅋ 하면서 뛰어감.", "score": 2}, {"text": "“뛰어!!! 빨리 뛰어!!!!”\\nNPC보다 내가 일행을 더 공포스럽게 재촉함.", "score": 3}, {"text": "“으아아아아악!!!!”\\n뒤는 절대 안 봄. 앞사람 추월해서 제일 먼저 도착함.", "score": 4}]}, {"id": 6, "axis": "추격", "image": "images/q6.jpg", "text": "NPC를 피해 방 안에 숨었는데 “거기 있는 거 알아.”라는 목소리가 들린다. 문이 열리고 NPC가 들어오자, 다른 출구를 찾아 다시 도망쳐야 한다.", "answers": [{"text": "“아 들켰네.”\\nNPC 들어오는 거 보고 출구부터 찾아서 유유히 이동함.", "score": 1}, {"text": "“와 여기까지 따라오네ㅋㅋ”\\n긴장되긴 하는데 추격전 제대로 즐기는 중.", "score": 2}, {"text": "“아니 숨었잖아!!!! 왜 알아!!!!”\\nNPC한테 억울함을 호소하면서 출구 찾아 허둥지둥 도망감.", "score": 3}, {"text": "“거기 있는 거 알아.” 듣는 순간 이미 패닉.\\n문 열리기도 전에 갈 수 있는 문이란 문은 다 잡아당기고 있음.", "score": 4}]}, {"id": 7, "axis": "독립구간", "image": "images/q7.jpg", "text": "문제 하나를 풀자 모니터에 「한 명만 입장하십시오」라는 문구가 뜬다. 문을 열어보니 작은 방 가장 안쪽에 다음 문제에 필요한 물건이 놓여 있다. 누군가는 혼자 들어가 가져와야 한다.", "answers": [{"text": "“내가 갔다 올게.”\\n대답 기다릴 것도 없이 이미 물건 들고 돌아오는 중.", "score": 1}, {"text": "“아 아무나 갔다 오자ㅋㅋ 내가 갈게.”\\n괜히 쿨한 척 들어갔다가 나올 때 걸음이 두 배 빨라짐.", "score": 2}, {"text": "“난 아까 문제 풀었잖아.”\\n갑자기 지금까지의 팀 기여도를 정산하기 시작함.", "score": 3}, {"text": "“난 진짜 절대 못 가.”\\n협상이고 뭐고 바닥에 드러누워 인간 바리케이드 됨.", "score": 4}]}, {"id": 8, "axis": "독립구간", "image": "images/q8.jpg", "text": "일행과 함께 이동하던 중 갑자기 철문이 내려오면서 나 혼자 반대편에 떨어진다. 스피커에서는 「각자 앞에 있는 길로 이동하십시오」라는 안내가 나온다.", "answers": [{"text": "“오 각자 하는 건가?”\\n뒤도 안 돌아보고 내 길부터 구경하러 감.", "score": 1}, {"text": "“어? 나 혼자네?”\\n갑자기 조금 긴장되지만 애써 아무렇지 않은 척 앞으로 감.", "score": 2}, {"text": "“야 잠깐만!!! 너네 가지 마!!!!”\\n철문 너머 일행에게 계속 말 걸면서 이동함.", "score": 3}, {"text": "“아니 잠깐만요 저 혼자인데요????”\\n일행보다 스피커에 대고 제작자와 협상 시도 중.", "score": 4}]}, {"id": 9, "axis": "NPC 대면", "image": "images/q9.jpg", "text": "다음 방에 들어가자 고개를 숙인 NPC가 의자에 가만히 앉아 있다. 다음 문제에 필요한 열쇠는 그 NPC가 손에 쥐고 있다.", "answers": [{"text": "“저거 가져오면 되는 거지?”\\nNPC 손에서 열쇠 쏙 빼서 돌아옴.", "score": 1}, {"text": "“저 사람… 안 움직이겠지?”\\nNPC 눈치 슬쩍 보면서 조심조심 열쇠 가져옴.", "score": 2}, {"text": "“저거 네가 가져오면 안 돼?”\\n자연스럽게 가장 가까이 서 있던 일행에게 임무를 양도함.", "score": 3}, {"text": "“저걸 가져오라고????”\\nNPC가 열쇠를 쥔 순간부터 그건 이제 우리 팀 열쇠가 아니라고 생각함.", "score": 4}]}, {"id": 10, "axis": "NPC 대면", "image": "images/q10.jpg", "text": "방 안에 NPC가 테이블을 사이에 두고 앉아 있다. NPC가 천천히 고개를 들더니 맞은편의 빈 의자를 가리킨다. 테이블 위에는 다음 문제에 필요한 물건이 있고, NPC 맞은편에 앉아야 진행할 수 있다.", "answers": [{"text": "“여기 앉으면 되는 거죠?”\\n냅다 맞은편에 앉아서 NPC가 뭐 할지 기다림.", "score": 1}, {"text": "“와… 가까이서 보니까 좀 무섭네.”\\n긴장되긴 하지만 얌전히 앉아서 시선만 살짝 피함.", "score": 2}, {"text": "“꼭 내가 앉아야 돼?”\\nNPC가 의자 가리키는데 일행들이랑 눈치게임부터 시작함.", "score": 3}, {"text": "“나 못 봐, 나 못 봐.”\\nNPC 쪽은 쳐다보지도 않고 눈 감은 채 상황 끝나기만 기다림.", "score": 4}]}];
-const RESULTS={"극쫄": {"name": "제작자 효자형", "emoji": "👑", "image": "images/result1.jpg", "tagline": "준비한 공포, 하나도 안 버립니다.", "desc": "제작자가 준비한 모든 공포 연출을 단 하나도 놓치지 않는 타입입니다.\n큰 소리가 나면 놀라고, 불이 꺼지면 무섭고, 긴 복도가 나오면 가기 싫습니다.\nNPC가 나타나면 가까이 가기 싫고, 쫓아오면 누구보다 열심히 도망갑니다.\n심지어 아무 일도 안 일어나면 “왜 아무것도 안 하지? 이제 뭐 나오려나?” 하면서 알아서 무서워합니다.\n혼자 가라고 하면 못 가겠고, 같이 가도 무섭고, 가만히 있어도 다음 연출이 걱정됩니다.\n다른 사람은 특정 연출에서만 무너진다면 당신은 장르를 가리지 않는 올라운더 쫄에 가깝습니다.\n덕분에 제작자가 몇 달 동안 고민해서 만든 조명, 음향, NPC, 추격, 독립구간까지 전부 효과 만점입니다.\n같이 간 일행 입장에서는 당신 반응 구경하는 것까지 포함해서 공포방 콘텐츠가 하나 더 생깁니다.\n분명 제일 무서워하면서 이상하게 공포방은 또 계속 갑니다.\n제작자 입장에서는 이보다 보람찰 수 없습니다. 준비한 공포 연출 하나도 안 버리고 전부 무서워해주는 최고의 효자입니다."}, "극탱": {"name": "무슨 일이 있었나요형", "emoji": "🗿", "image": "images/result2.jpg", "tagline": "분명 공포방인데 혼자 장르가 다릅니다.", "desc": "분명 공포방에 같이 들어왔는데 혼자 다른 장르를 플레이하고 있는 타입입니다.\n갑자기 큰 소리가 나도 “뭐야?” 하고 소리가 난 곳부터 확인합니다.\n불이 꺼져도 무서워하기보다는 다음 장치가 언제 작동하는지 기다리는 편입니다.\n다른 사람들이 복도 앞에서 서로 먼저 가라고 실랑이할 때 이미 절반쯤 걸어가 있을 수도 있어요.\nNPC가 등장해도 공포의 대상이라기보다 ‘지금 내가 뭘 해야 진행되지?’부터 생각합니다.\n그래서 옆에서는 비명이 터지고 있는데 혼자 열쇠나 출구를 찾고 있는 일이 자주 생깁니다.\n다만 겁이 없다기보다 공포 연출을 연출로 인식하는 속도가 빠른 쪽에 가깝습니다.\n덕분에 팀이 패닉에 빠졌을 때 앞으로 보내기 아주 좋은 귀중한 인재입니다.\n문제는 본인은 멀쩡한데 뒤에서 친구들이 안 따라와서 자꾸 혼자 남게 된다는 것.\n공포방에서 가장 무서운 것은 귀신보다 진행이 안 되는 상황일지도 모릅니다."}, "삑딱쿵": {"name": "비명 자동발사형", "emoji": "💥", "image": "images/result3.jpg", "tagline": "머리보다 몸이 먼저 반응합니다.", "desc": "공포를 머리로 판단하기 전에 일단 몸이 먼저 반응하는 타입입니다.\n옆에서 갑자기 ‘쾅!’ 하면 정체를 확인하기도 전에 비명부터 자동으로 나옵니다.\n사진이 움직여도 비명, 문이 열려도 비명, 뒤에서 친구가 건드려도 일단 비명입니다.\n그리고 2초 뒤에 “아 뭐야ㅋㅋ” 하면서 아무 일 없었다는 듯 다시 문제를 풉니다.\n그래서 무서움을 오래 끌고 가는 편은 아닌데 순간 화력 하나는 누구에게도 지지 않습니다.\n추격전에서는 NPC보다 본인의 비명 때문에 일행들이 먼저 뛰기 시작할 수도 있습니다.\n옆 사람까지 같이 놀라게 만드는 능력이 있어서 공포를 팀 전체에 전염시키기도 합니다.\n정작 본인은 소리 한번 지르고 나면 금방 회복해서 다시 앞으로 가는 경우도 많아요.\n공포방에서 당신의 역할은 탱커도, 문제풀이 담당도 아닌 인간 경보기입니다.\n제작자가 넣은 효과음보다 당신의 비명이 더 큰 날도 있습니다."}, "창공": {"name": "상상으로 이미 죽음형", "emoji": "👻", "image": "images/result4.jpg", "tagline": "아무 일도 없는데 이미 혼자 다 겪었습니다.", "desc": "아무 일도 안 일어날수록 오히려 더 무서운 타입입니다.\n갑툭튀 자체보다 “이제 뭔가 나올 것 같은데?” 하는 시간이 더 힘들어요.\n불이 갑자기 꺼지거나 아무도 없는 긴 복도가 나오면 상상력이 먼저 일을 시작합니다.\n아직 아무것도 안 나왔는데 어느새 일행 옆에 슬쩍 붙어 있을 가능성이 높습니다.\n특히 “저 문 열면 뭐 있는 거 아니야?”처럼 확인하기 직전의 순간에 긴장도가 크게 올라갑니다.\n막상 무언가 실제로 등장하면 생각했던 것보다 괜찮아서 금방 진정되기도 합니다.\n하지만 다음 연출이 오기 전까지 머릿속에서는 가능한 최악의 시나리오가 계속 업데이트됩니다.\n공포방이 조용하면 조용한 대로, 수상하면 수상한 대로 알아서 무서울 이유를 찾아냅니다.\n제작자가 잠깐 쉬어가는 구간을 만들어도 혼자 그 빈칸에 공포 연출을 채워 넣습니다.\n공포방 제작자가 아무것도 하지 않아도 알아서 공포를 만들어 즐겨주는 타입입니다."}, "추격": {"name": "생존본능 MAX형", "emoji": "🏃", "image": "images/result5.jpg", "tagline": "쫓기는 순간, 생각보다 몸이 빠릅니다.", "desc": "평소에는 잘 돌아다니다가 쫓기는 순간 공포 스위치가 켜지는 타입입니다.\n가만히 있는 귀신보다 나를 향해 달려오는 무언가가 훨씬 무섭습니다.\nNPC가 멀리 서 있을 때는 제법 여유롭게 관찰하다가 한 발 다가오는 순간 태도가 달라집니다.\n특히 뒤에서 발소리가 빨라지면 생각보다 몸이 훨씬 정직하게 반응합니다.\n“뛰어!”라는 말이 끝나기도 전에 이미 다음 문 앞에 도착해 있을 수도 있어요.\n평소에는 친구 챙기는 사람도 이 순간만큼은 각자도생이라는 단어의 의미를 깨닫습니다.\n뒤를 돌아보며 상황을 확인하기보다는 일단 안전지대부터 확보하는 것이 우선입니다.\n신기하게도 추격이 끝나고 문만 닫히면 금방 웃으면서 “와 재밌다ㅋㅋ”로 돌아옵니다.\n그래서 무섭다고 싫어하기보다는 오히려 추격 연출 자체는 좋아하는 경우도 있습니다.\n공포방에서 발견하게 되는 의외의 재능은 생각보다 빠른 자신의 달리기 실력입니다."}, "독립구간": {"name": "제발 같이 가형", "emoji": "🚪", "image": "images/result6.jpg", "tagline": "혼자는 계약에 없었습니다.", "desc": "귀신보다 싫은 것은 공포방에서 혼자 남겨지는 상황인 타입입니다.\n다 같이 있을 때는 생각보다 멀쩡한데 “한 명만 입장하십시오”가 뜨는 순간 표정이 달라집니다.\n혼자 작은 방에 들어가야 하면 갑자기 지금까지 누가 문제를 더 많이 풀었는지 정산이 시작됩니다.\n강제로 일행과 갈라지면 철문 너머 친구들에게 계속 말을 걸면서 이동합니다.\n대답이 안 들리기 시작하면 방금까지 아무렇지도 않던 공간도 갑자기 두 배로 무서워집니다.\n반대로 옆에 한 명만 붙어 있어도 공포도가 눈에 띄게 내려가는 편입니다.\n그래서 가장 좋아하는 포지션은 선두도 후미도 아닌 믿을 만한 사람 바로 옆입니다.\nNPC가 나타나도 혼자가 아니라는 사실만 확인되면 생각보다 잘 버틸 수 있습니다.\n공포 그 자체보다 ‘이 상황을 나 혼자 감당해야 한다’는 느낌에 특히 약한 타입입니다.\n공포방의 최고의 아이템은 손전등도 힌트폰도 아닌 같이 갈 사람입니다."}, "NPC 대면": {"name": "눈 마주치면 끝장형", "emoji": "🎭", "image": "images/result7.jpg", "tagline": "저게 지금 나를 보고 있다는 게 제일 문제입니다.", "desc": "귀신이 멀리 있을 때는 괜찮지만 나와 직접 상호작용하기 시작하면 급격히 약해지는 타입입니다.\n특히 NPC가 나를 쳐다보거나 가까이 오거나 말을 거는 순간 공포도가 확 올라갑니다.\nNPC가 손에 열쇠를 쥐고 있다면 자연스럽게 옆 사람에게 “네가 가져오면 안 돼?”를 시전합니다.\n맞은편에 앉으라는 지시라도 나오면 갑자기 누가 앉을지를 두고 눈치게임이 시작됩니다.\n멀리서 움직이는 모습은 볼 수 있어도 얼굴을 마주 보고 뭘 해야 하는 상황은 전혀 다른 문제입니다.\n심하면 NPC 쪽을 아예 안 보고 눈을 감은 채 상황이 끝나기만 기다릴 수도 있습니다.\n재밌는 건 추격처럼 정신없이 움직이는 상황에서는 오히려 생각보다 잘 버티기도 한다는 점입니다.\n무서운 존재 자체보다 ‘저게 지금 나를 인식하고 있다’는 느낌에 특히 민감합니다.\n그래서 NPC 비중이 높은 테마에서는 평소보다 훨씬 높은 공포도를 체감할 가능성이 큽니다.\n사람이 제일 무섭습니다. NPC와의 아이컨택은 절대 금지."}};
-const AXES=["삑딱쿵","창공","추격","독립구간","NPC 대면"];
-let order=[],cursor=0,responses={};
-
-function track(name,params={}){ if(typeof gtag==="function") gtag("event",name,params); }
-function shuffle(arr){const a=[...arr];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a;}
-function show(id){document.querySelectorAll(".screen").forEach(x=>x.classList.remove("active"));document.getElementById(id).classList.add("active");window.scrollTo({top:0,behavior:"instant"});}
-
-function beginTest(){
-  track("test_start");
-  order=shuffle(QUESTIONS);
-  cursor=0; responses={};
-  show("quiz"); renderQuestion();
-}
-
-function renderQuestion(){
-  const q=order[cursor];
-  document.getElementById("step").textContent=String(cursor+1).padStart(2,"0");
-  document.getElementById("progress").style.width=`${(cursor/QUESTIONS.length)*100}%`;
-  document.getElementById("qImage").src=q.image;
-  document.getElementById("qText").textContent=q.text;
-  const list=document.getElementById("answerList");list.innerHTML="";
-  shuffle(q.answers).forEach((a,i)=>{
-    const b=document.createElement("button");b.className="answer";
-    b.innerHTML=`<span class="answer-no">${String(i+1).padStart(2,"0")}</span><span class="answer-text"></span>`;
-    b.querySelector(".answer-text").textContent=a.text;
-    b.onclick=()=>choose(q,a,b);
-    list.appendChild(b);
-  });
-}
-
-function choose(q,a,button){
-  button.classList.add("selected");
-  responses[q.id]={axis:q.axis,score:a.score};
-  setTimeout(()=>{cursor++; if(cursor<QUESTIONS.length) renderQuestion(); else finish();},150);
-}
-
-function axisScores(){
-  const out={};AXES.forEach(a=>out[a]=[]);
-  Object.entries(responses).forEach(([id,r])=>out[r.axis].push({id:+id,score:r.score}));
-  AXES.forEach(a=>out[a].sort((x,y)=>x.id-y.id));
-  return out;
-}
-function rawScores(){
-  const as=axisScores(),r={};
-  AXES.forEach(a=>r[a]=as[a].reduce((s,x)=>s+x.score,0));
-  return r;
-}
-function displayScore(axis){
-  const arr=axisScores()[axis];
-  const a=arr[0]?.score||1,b=arr[1]?.score||1;
-  const scaled=5+((a+b-2)/6)*90+(b-a)*2;
-  return Math.max(4,Math.min(97,Math.round(scaled)));
-}
-function classify(){
-  const raw=rawScores(),vals=Object.values(raw);
-  if(vals.every(v=>v>=6)) return "극쫄";
-  if(vals.every(v=>v<=4)) return "극탱";
-  const max=Math.max(...vals);
-  let c=AXES.filter(a=>raw[a]===max);
-  if(c.length>1){const dm=Math.max(...c.map(displayScore));c=c.filter(a=>displayScore(a)===dm);}
-  return c[0];
-}
-function sceneFor(type){
-  const m={
-    "극쫄":"불이 꺼집니다. 복도가 나옵니다. NPC도 있습니다.\n당신은 셋 다 무섭습니다. 그런데 결국 또 공포방을 예약합니다.",
-    "극탱":"친구들이 문 앞에서 서로 먼저 가라고 실랑이하는 사이,\n당신은 이미 다음 방에 들어가 문제를 찾고 있습니다.",
-    "삑딱쿵":"옆에서 ‘쾅!’ 소리가 나는 순간 비명은 이미 끝났습니다.\n2초 뒤에는 아무 일 없었다는 듯 다시 문제를 풉니다.",
-    "창공":"불이 꺼진 지 10초. 아직 아무 일도 없는데,\n당신은 이미 일행 옆에 붙어서 다음 연출을 상상하고 있습니다.",
-    "추격":"“뛰어!”라는 말이 끝나기도 전에 이미 다음 문 앞.\n추격이 끝나면 가장 먼저 “와 재밌다ㅋㅋ”로 돌아옵니다.",
-    "독립구간":"「한 명만 입장하십시오」가 뜨는 순간,\n갑자기 지금까지 누가 문제를 더 많이 풀었는지 정산이 시작됩니다.",
-    "NPC 대면":"NPC가 열쇠를 쥐고 있습니다.\n당신은 열쇠보다 먼저 옆 사람을 쳐다봅니다. “네가 가져오면 안 돼?”"
-  };return m[type];
-}
-
-function finish(){
-  const type=classify(),info=RESULTS[type];
-  track("test_complete",{result_type:type});
-  document.getElementById("resultPoster").src=info.image;
-  document.getElementById("resultName").textContent=`${info.emoji} ${info.name}`;
-  document.getElementById("resultTagline").textContent=info.tagline;
-  document.getElementById("sceneCopy").textContent=sceneFor(type);
-  document.getElementById("detailCopy").textContent=info.desc;
-  const scores=document.getElementById("scores");scores.innerHTML="";
-  AXES.map(a=>[a,displayScore(a)]).sort((a,b)=>b[1]-a[1]).forEach(([a,v])=>{
-    const row=document.createElement("div");row.className="score-row";
-    row.innerHTML=`<div class="score-label">${a}</div><div class="score-track"><div class="score-fill" style="width:0"></div></div><div class="score-num">${v}</div>`;
-    scores.appendChild(row);requestAnimationFrame(()=>row.querySelector(".score-fill").style.width=v+"%");
-  });
-  show("result");
-}
-
-async function sharePayload(title,text,url){
-  if(navigator.share){try{await navigator.share({title,text,url});return}catch(e){}}
-  const val=[text,url].join("\n");
-  try{await navigator.clipboard.writeText(val);alert("공유 문구를 복사했어요!")}catch(e){alert(val)}
-}
-async function shareTest(){
-  track("share_test_click");
-  await sharePayload("방탈출 공포 유형 테스트","쫄도 다 같은 쫄이 아니다 👻\n나는 정확히 무엇에 쫄까? 10개의 상황으로 확인해봐.",location.href);
-}
-async function shareResult(){
-  const type=classify(),info=RESULTS[type];
-  track("share_result_click",{result_type:type});
-  const top=AXES.map(a=>[a,displayScore(a)]).sort((a,b)=>b[1]-a[1])[0];
-  await sharePayload("나의 방탈출 공포 유형 결과",`나는 ${info.emoji} ${info.name}!\n가장 높은 공포는 ${top[0]} ${top[1]}점.\n너는 정확히 뭐에 쫄까?`,location.href);
-}
-function resetTest(){show("start");}
-</script>
-</body>
-</html>
+const QUESTIONS=[{"id": 0, "axis": "삑딱쿵", "image": "images/q1.jpg", "text": "오래된 일기장을 발견했다. 마지막 페이지를 펼치는 순간, 바로 옆에서 갑자기 “쾅!” 하는 큰 소리가 난다.", "answers": [{"text": "“뭐야?”\n하고 소리 난 쪽부터 확인함.", "score": 1}, {"text": "“아 깜짝아;”\n놀란 건 놀란 거고 문제는 풀어야지.", "score": 2}, {"text": "“악!!! 뭐야!!!”\n놀란 가슴 진정시키느라 일기장 내용은 이미 까먹음.", "score": 3}, {"text": "“으아아아악!!!!!”\n일기장은 이미 바닥에 있고 나는 일행 뒤에 있음.", "score": 4}]}, {"id": 1, "axis": "삑딱쿵", "image": "images/q2.jpg", "text": "벽에 걸린 가족사진에서 이상한 점을 찾으라는 문제가 나왔다. 사진에 얼굴을 가까이 대고 살펴보는 순간, 사진 속 인물이 갑자기 움직인다.", "answers": [{"text": "“오 움직인다.”\n이상한 점 찾았다고 좋아함.", "score": 1}, {"text": "“어우 씨 깜짝아;;”\n한 발 물러났다가 다시 얼굴 들이밀고 관찰함.", "score": 2}, {"text": "“악!! 얘 움직여!!!”\n발견은 내가 했지만 확인은 일행한테 시킴.", "score": 3}, {"text": "“으아아악!!! 사진이 움직여!!!!”\n이제 이상한 점이고 뭐고 저 사진 근처에 안 감.", "score": 4}]}, {"id": 2, "axis": "창공", "image": "images/q3.jpg", "text": "자물쇠를 열자 방 전체의 불이 갑자기 꺼진다. 그런데 10초가 지나도 아무 일도 일어나지 않고, 다음 안내도 나오지 않는다.", "answers": [{"text": "“그래서 불 언제 켜지는데…”\n슬슬 지루해지기 시작함.", "score": 1}, {"text": "“뭐 나오려나?”\n무섭다기보단 연출 시작한 것 같아서 은근 기대 중.", "score": 2}, {"text": "“아니 이게 더 싫어… 뭐 나올 거잖아…”\n아무것도 안 나왔는데 이미 일행 옆에 딱 붙어 있음.", "score": 3}, {"text": "“뭐야 뭐야 뭐야 왜 아무것도 안 해!!!!”\n차라리 뭐라도 빨리 나오라고 하면서 일행 붙잡고 덜덜 떠는 중.", "score": 4}]}, {"id": 3, "axis": "창공", "image": "images/q4.jpg", "text": "문을 열었더니 끝이 잘 보이지 않는 어두운 복도가 나온다. 저 멀리 작은 조명 하나만 켜져 있고, 그곳까지 직접 걸어가야 한다.", "answers": [{"text": "“저기 가라는 건가?”\n이미 복도 절반쯤 가 있음.", "score": 1}, {"text": "“와 여기 뭐 나오기 딱 좋게 생겼네.”\n경계는 하는데 발은 계속 앞으로 감.", "score": 2}, {"text": "“잠깐만… 이걸 그냥 가라고?”\n갑자기 누가 앞장설지 공평한 가위바위보를 제안함.", "score": 3}, {"text": "“난 절대 앞에는 못 가. 뒤에도 못 가.”\n탱 두 명 사이에 끼워달라고 해서 인간 샌드위치 완성.", "score": 4}]}, {"id": 4, "axis": "추격", "image": "images/q5.jpg", "text": "복도를 지나던 중 뒤쪽 문이 벌컥 열린다. NPC가 당신들을 발견하고 전력으로 쫓아오기 시작한다. 앞에 보이는 문까지 뛰어가야 한다.", "answers": [{"text": "“어? 뛰어야 돼?”\nNPC보다 일행들이 갑자기 뛰어서 같이 뛰기 시작함.", "score": 1}, {"text": "“어어 온다 온다!!”\n무섭긴 한데 이런 게 공포방이지ㅋㅋ 하면서 뛰어감.", "score": 2}, {"text": "“뛰어!!! 빨리 뛰어!!!!”\nNPC보다 내가 일행을 더 공포스럽게 재촉함.", "score": 3}, {"text": "“으아아아아악!!!!”\n뒤는 절대 안 봄. 앞사람 추월해서 제일 먼저 도착함.", "score": 4}]}, {"id": 5, "axis": "추격", "image": "images/q6.jpg", "text": "NPC를 피해 방 안에 숨었는데 “거기 있는 거 알아.”라는 목소리가 들린다. 문이 열리고 NPC가 들어오자, 다른 출구를 찾아 다시 도망쳐야 한다.", "answers": [{"text": "“아 들켰네.”\nNPC 들어오는 거 보고 출구부터 찾아서 유유히 이동함.", "score": 1}, {"text": "“와 여기까지 따라오네ㅋㅋ”\n긴장되긴 하는데 추격전 제대로 즐기는 중.", "score": 2}, {"text": "“아니 숨었잖아!!!! 왜 알아!!!!”\nNPC한테 억울함을 호소하면서 출구 찾아 허둥지둥 도망감.", "score": 3}, {"text": "“거기 있는 거 알아.” 듣는 순간 이미 패닉.\n문 열리기도 전에 갈 수 있는 문이란 문은 다 잡아당기고 있음.", "score": 4}]}, {"id": 6, "axis": "독립구간", "image": "images/q7.jpg", "text": "문제 하나를 풀자 모니터에 「한 명만 입장하십시오」라는 문구가 뜬다. 문을 열어보니 작은 방 가장 안쪽에 다음 문제에 필요한 물건이 놓여 있다. 누군가는 혼자 들어가 가져와야 한다.", "answers": [{"text": "“내가 갔다 올게.”\n대답 기다릴 것도 없이 이미 물건 들고 돌아오는 중.", "score": 1}, {"text": "“아 아무나 갔다 오자ㅋㅋ 내가 갈게.”\n괜히 쿨한 척 들어갔다가 나올 때 걸음이 두 배 빨라짐.", "score": 2}, {"text": "“난 아까 문제 풀었잖아.”\n갑자기 지금까지의 팀 기여도를 정산하기 시작함.", "score": 3}, {"text": "“난 진짜 절대 못 가.”\n협상이고 뭐고 바닥에 드러누워 인간 바리케이드 됨.", "score": 4}]}, {"id": 7, "axis": "독립구간", "image": "images/q8.jpg", "text": "일행과 함께 이동하던 중 갑자기 철문이 내려오면서 나 혼자 반대편에 떨어진다. 스피커에서는 「각자 앞에 있는 길로 이동하십시오」라는 안내가 나온다.", "answers": [{"text": "“오 각자 하는 건가?”\n뒤도 안 돌아보고 내 길부터 구경하러 감.", "score": 1}, {"text": "“어? 나 혼자네?”\n갑자기 조금 긴장되지만 애써 아무렇지 않은 척 앞으로 감.", "score": 2}, {"text": "“야 잠깐만!!! 너네 가지 마!!!!”\n철문 너머 일행에게 계속 말 걸면서 이동함.", "score": 3}, {"text": "“아니 잠깐만요 저 혼자인데요????”\n일행보다 스피커에 대고 제작자와 협상 시도 중.", "score": 4}]}, {"id": 8, "axis": "NPC 대면", "image": "images/q9.jpg", "text": "다음 방에 들어가자 고개를 숙인 NPC가 의자에 가만히 앉아 있다. 다음 문제에 필요한 열쇠는 그 NPC가 손에 쥐고 있다.", "answers": [{"text": "“저거 가져오면 되는 거지?”\nNPC 손에서 열쇠 쏙 빼서 돌아옴.", "score": 1}, {"text": "“저 사람… 안 움직이겠지?”\nNPC 눈치 슬쩍 보면서 조심조심 열쇠 가져옴.", "score": 2}, {"text": "“저거 네가 가져오면 안 돼?”\n자연스럽게 가장 가까이 서 있던 일행에게 임무를 양도함.", "score": 3}, {"text": "“저걸 가져오라고????”\nNPC가 열쇠를 쥔 순간부터 그건 이제 우리 팀 열쇠가 아니라고 생각함.", "score": 4}]}, {"id": 9, "axis": "NPC 대면", "image": "images/q10.jpg", "text": "방 안에 NPC가 테이블을 사이에 두고 앉아 있다. NPC가 천천히 고개를 들더니 맞은편의 빈 의자를 가리킨다. 테이블 위에는 다음 문제에 필요한 물건이 있고, NPC 맞은편에 앉아야 진행할 수 있다.", "answers": [{"text": "“여기 앉으면 되는 거죠?”\n냅다 맞은편에 앉아서 NPC가 뭐 할지 기다림.", "score": 1}, {"text": "“와… 가까이서 보니까 좀 무섭네.”\n긴장되긴 하지만 얌전히 앉아서 시선만 살짝 피함.", "score": 2}, {"text": "“꼭 내가 앉아야 돼?”\nNPC가 의자 가리키는데 일행들이랑 눈치게임부터 시작함.", "score": 3}, {"text": "“나 못 봐, 나 못 봐.”\nNPC 쪽은 쳐다보지도 않고 눈 감은 채 상황 끝나기만 기다림.", "score": 4}]}];const RESULTS={"극쫄": {"name": "제작자 효자형", "emoji": "👑", "image": "images/result1.jpg", "one": "준비한 공포 연출, 하나도 빠짐없이 다 받아드립니다.", "example": "테마에 불이 꺼지고, NPC가 나오고, 혼자 가라고 하면 그때마다 새롭게 무서워집니다.", "analysis": ["삑딱쿵, 창공, 추격, 독립구간, NPC 대면까지 특정 한 가지가 아니라 공포 연출 전반에 고르게 반응하는 타입입니다. 제작자가 준비한 장치를 가장 충실하게 체험하는 플레이어에 가깝습니다.", "갑자기 뭔가 튀어나와도 놀라고, 아무것도 안 나오는 어두운 복도에서도 상상력이 먼저 움직입니다. 혼자 가라는 안내가 나오면 팀원부터 찾고, NPC가 가까이 오면 공포도가 한 번 더 올라갑니다.", "대신 이런 타입은 공포테마에서 얻는 감정 변화가 큰 편이라, 무섭긴 해도 끝나고 나면 기억에 남는 장면이 많을 가능성이 높습니다. 무서움 자체가 테마의 재미로 연결되는 경우도 많습니다."], "closing": "제작자가 준비한 공포를 가장 알차게 즐기는 고객입니다."}, "극탱": {"name": "무슨 일이 있었나요형", "emoji": "🗿", "image": "images/result2.jpg", "one": "친구 셋이 비명을 질렀는데 혼자 상황 파악 중입니다.", "example": "불이 꺼져도 ‘연출 시작했나?’ 하고 기다리고, NPC가 가까이 와도 다음 행동부터 찾습니다.", "analysis": ["공포 요소 전반에 대한 반응이 비교적 낮은 타입입니다. 갑작스러운 소리나 어두운 분위기, 추격과 독립구간이 나와도 공포 때문에 행동이 크게 제한되지는 않는 편입니다.", "그래서 공포테마에서는 자연스럽게 앞장서거나, 다른 일행이 멈췄을 때 진행을 맡는 역할이 되기 쉽습니다. 정작 본인은 별생각 없었는데 팀 내 공식 탱커로 지정되는 경우도 많습니다.", "다만 안 무섭다고 해서 공포테마를 못 즐기는 건 아닙니다. 연출의 구조나 공간, 스토리, 추격 자체의 재미처럼 공포 외의 요소에서 재미를 찾는 타입일 수 있습니다."], "closing": "공포 연출이 당신을 피해가는 편입니다."}, "삑딱쿵": {"name": "비명 자동발사형", "emoji": "💥", "image": "images/result3.jpg", "one": "생각보다 몸이 먼저 반응합니다.", "example": "갑자기 ‘쾅!’ 하면 일단 비명부터 나가지만, 3초 뒤에는 다시 문제를 풀고 있습니다.", "analysis": ["갑작스러운 소리나 움직임처럼 예상하지 못한 자극에 특히 크게 반응하는 타입입니다. 공포를 오래 끌고 가기보다 순간적인 놀람에서 반응이 크게 튀는 편입니다.", "그래서 비명은 팀에서 제일 크게 질러도 정작 회복은 빠를 수 있습니다. 방금 사진이 움직여서 난리가 났다가도, 조금 지나면 다시 가까이 가서 확인하고 있는 식입니다.", "창공이나 추격보다 갑툭튀가 많은 테마에서 체감 공포도가 높아질 가능성이 큽니다. ‘나는 공포를 오래 느끼진 않는데 왜 이렇게 잘 놀라지?’ 싶다면 이쪽에 가깝습니다."], "closing": "일단 소리부터 나가고 보는 반사신경 과잉형입니다."}, "창공": {"name": "상상으로 이미 죽음형", "emoji": "👻", "image": "images/result4.jpg", "one": "아무 일도 안 일어날 때가 제일 무섭습니다.", "example": "불이 꺼졌는데 10초째 조용하면, 이미 머릿속에서는 앞으로 일어날 일 세 가지를 완성했습니다.", "analysis": ["눈앞에서 무언가가 벌어지는 순간보다 ‘곧 뭔가 일어날 것 같다’는 상태에 특히 약한 타입입니다. 아무것도 확정되지 않은 시간이 길어질수록 상상력이 공포를 대신 만들어냅니다.", "어두운 복도나 정적, 멀리 보이는 작은 불빛처럼 정보가 부족한 상황에서 긴장도가 빠르게 올라갑니다. 그래서 실제 연출이 시작되기 전부터 일행 사이에 자리를 잡거나 누가 먼저 갈지 정하기 시작합니다.", "반대로 막상 무언가 튀어나오고 상황이 확정되면 생각보다 빠르게 진정할 수도 있습니다. 당신에게 중요한 건 공포의 세기보다 불확실성이 얼마나 오래 유지되는가에 가깝습니다."], "closing": "아무것도 안 했는데 이미 혼자 한 편을 완성했습니다."}, "추격": {"name": "생존본능 MAX형", "emoji": "🏃", "image": "images/result5.jpg", "one": "쫓기는 순간 평소에 없던 스피드가 나옵니다.", "example": "NPC가 뛰어오는 순간 뒤는 보지 않습니다. 어제까지 없던 달리기 실력이 오늘 갑자기 생깁니다.", "analysis": ["가만히 있는 공포보다 실제로 쫓기고 도망쳐야 하는 상황에서 반응이 크게 올라가는 타입입니다. ‘잡힐 수 있다’는 느낌이 생기는 순간 생각보다 몸이 먼저 움직입니다.", "추격이 시작되면 일행을 재촉하거나 앞사람을 추월하는 등 평소보다 훨씬 빠르고 적극적으로 움직일 수 있습니다. 반면 추격이 끝난 뒤에는 금방 웃으면서 상황을 이야기할 가능성도 높습니다.", "이 타입은 공포 그 자체보다 내가 당장 행동해야 한다는 압박에 민감합니다. 추격 비중이 높은 테마에서는 평소 공포 내성보다 훨씬 높은 체감 공포도를 느낄 수 있습니다."], "closing": "뒤는 안 보고, 일단 살고 봅니다."}, "독립구간": {"name": "제발 같이 가형", "emoji": "🚪", "image": "images/result6.jpg", "one": "함께라면 괜찮습니다. ‘한 명만’이 문제입니다.", "example": "‘한 명만 입장하십시오’가 뜨는 순간 갑자기 지금까지의 팀 기여도가 정산되기 시작합니다.", "analysis": ["같은 공간에 일행이 있을 때와 혼자 떨어졌을 때의 공포 차이가 큰 타입입니다. 공포 요소 자체보다 ‘지금 이걸 혼자 감당해야 한다’는 상황이 긴장도를 크게 올립니다.", "자원해서 들어가야 하는 독립구간에서는 누가 더 적합한지 찾기 시작하고, 강제로 철문이 내려와 혼자가 되면 일행과 계속 대화를 유지하려 할 가능성이 높습니다.", "반대로 누군가 옆에 있기만 하면 생각보다 잘 버팁니다. 같은 공포 연출이어도 팀원이 보이느냐 안 보이느냐에 따라 체감 난이도가 크게 달라지는 편입니다."], "closing": "혼자는 계약에 없었습니다."}, "NPC 대면": {"name": "눈 마주치면 끝장형", "emoji": "🎭", "image": "images/result7.jpg", "one": "사람이 제일 무섭습니다. NPC와의 아이컨택은 절대 금지.", "example": "NPC가 열쇠를 쥐고 있습니다. 당신은 열쇠보다 먼저 옆 사람을 쳐다봅니다. “네가 가져오면 안 돼?”", "analysis": ["귀신이 멀리 있을 때는 괜찮지만 나와 직접 상호작용하기 시작하면 급격히 약해지는 타입입니다. 특히 NPC가 나를 쳐다보거나 가까이 오거나 말을 거는 순간 공포도가 확 올라갑니다.", "NPC가 손에 열쇠를 쥐고 있다면 자연스럽게 옆 사람에게 임무를 넘기고, 맞은편에 앉으라는 지시가 나오면 갑자기 누가 앉을지를 두고 눈치게임이 시작됩니다. 멀리서 보는 것과 얼굴을 마주하는 건 완전히 다른 문제입니다.", "재미있는 건 추격처럼 정신없이 움직이는 상황에서는 오히려 생각보다 잘 버틸 수도 있다는 점입니다. 무서운 존재 자체보다 ‘저게 지금 나를 인식하고 있다’는 느낌에 특히 민감합니다."], "closing": "NPC 비중이 높은 테마에서는 평소보다 공포도가 훨씬 올라갈 수 있습니다."}};const AXES=["삑딱쿵","창공","추격","독립구간","NPC 대면"];let order=[],step=0,choices={};
+function shuffle(arr){const a=[...arr];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function cleanText(s){return String(s).replace(/\\n/g,"\n")}
+function begin(){order=shuffle(QUESTIONS);step=0;choices={};start.classList.add("hidden");result.classList.add("hidden");quiz.classList.remove("hidden");render()}
+function render(){const q=order[step];qnum.innerHTML=`${String(step+1).padStart(2,"0")}<small> /10</small>`;bar.style.width=`${step*10}%`;qimage.src=q.image;question.textContent=cleanText(q.text);answers.innerHTML="";shuffle(q.answers).forEach((a,i)=>{const b=document.createElement("button");b.className="answer";b.innerHTML=`<span class="answer-no">${String(i+1).padStart(2,"0")}</span><span class="answer-text"></span>`;b.querySelector(".answer-text").textContent=cleanText(a.text);b.onclick=()=>choose(q.id,a.score);answers.appendChild(b)})}
+function choose(qid,score){choices[qid]=score;step++;if(step<10)render();else finish()}
+function axisScores(axis){return QUESTIONS.filter(q=>q.axis===axis).sort((a,b)=>a.id-b.id).map(q=>choices[q.id]||1)}
+function displayScore(axis){const [s1,s2]=axisScores(axis);const weighted=((s1-1)*.48+(s2-1)*.52)/3;return Math.max(4,Math.min(98,Math.round(4+weighted*94)))}
+function classify(){const raw={};AXES.forEach(a=>raw[a]=axisScores(a).reduce((x,y)=>x+y,0));const vals=Object.values(raw);if(vals.every(v=>v>=6))return"극쫄";if(vals.every(v=>v<=4))return"극탱";const max=Math.max(...vals);let c=AXES.filter(a=>raw[a]===max);if(c.length>1){const m=Math.max(...c.map(displayScore));c=c.filter(a=>displayScore(a)===m)}return c[0]}
+function finish(){quiz.classList.add("hidden");result.classList.remove("hidden");const type=classify(),r=RESULTS[type];resultImage.src=r.image;resultTitle.textContent=`${r.emoji} ${r.name}`;resultOne.textContent=r.one;example.textContent=r.example;scoreList.innerHTML="";AXES.forEach(a=>{const v=displayScore(a),row=document.createElement("div");row.className="score";row.innerHTML=`<div class="score-top"><span>${a} 공포도</span><strong>${v}</strong></div><div class="meter"><div class="fill" style="width:${v}%"></div></div>`;scoreList.appendChild(row)});analysis.innerHTML="";r.analysis.forEach(t=>{const p=document.createElement("p");p.textContent=t;analysis.appendChild(p)});const c=document.createElement("p");c.className="closing";c.textContent=r.closing;analysis.appendChild(c);window.scrollTo({top:0,behavior:"smooth"})}
+async function sharePayload(title,text,url){if(navigator.share){try{await navigator.share({title,text,url});return}catch(e){}}try{await navigator.clipboard.writeText(text+"\n"+url);alert("공유 문구와 링크를 복사했어요.")}catch(e){}}
+async function shareTest(){await sharePayload("방탈출 공포 유형 테스트","쫄도 다 같은 쫄이 아니다 👻\n나는 어떤 공포에 가장 약할까?",location.href)}
+function makeShareCanvas(){const type=classify(),r=RESULTS[type],canvas=document.createElement("canvas");canvas.width=1080;canvas.height=1350;const ctx=canvas.getContext("2d");ctx.fillStyle="#f5f1eb";ctx.fillRect(0,0,1080,1350);ctx.fillStyle="#151515";ctx.font="700 34px Arial";ctx.fillText("방탈출 인간연구소",70,70);ctx.fillStyle="#777";ctx.font="26px Arial";ctx.fillText("TEST 001 · RESULT",70,112);const img=resultImage;const ratio=Math.min(420/img.naturalWidth,610/img.naturalHeight),iw=img.naturalWidth*ratio,ih=img.naturalHeight*ratio;ctx.drawImage(img,(1080-iw)/2,150,iw,ih);let y=150+ih+68;ctx.fillStyle="#151515";ctx.font="800 52px Arial";ctx.fillText(`${r.emoji} ${r.name}`,70,y);y+=58;ctx.fillStyle="#555";ctx.font="28px Arial";ctx.fillText(r.one.slice(0,30),70,y);y+=70;ctx.font="700 27px Arial";AXES.forEach((a,i)=>{ctx.fillStyle="#151515";ctx.fillText(`${a}  ${displayScore(a)}`,70+(i%2)*500,y+Math.floor(i/2)*50)});ctx.fillStyle="#b7202c";ctx.font="800 34px Arial";ctx.fillText("쫄도 다 같은 쫄이 아니다",70,1285);return canvas}
+async function shareResultCard(){const canvas=makeShareCanvas(),blob=await new Promise(r=>canvas.toBlob(r,"image/png")),file=new File([blob],"my-escape-horror-result.png",{type:"image/png"}),type=classify(),r=RESULTS[type],text=`나는 ${r.name}!\n너는 어떤 공포에 약한지 해봐 👇`;if(navigator.canShare&&navigator.canShare({files:[file]})&&navigator.share){try{await navigator.share({title:"나의 방탈출 공포 유형",text,url:location.href,files:[file]});return}catch(e){}}const a=document.createElement("a");a.href=canvas.toDataURL("image/png");a.download="my-escape-horror-result.png";a.click();try{await navigator.clipboard.writeText(location.href);alert("결과 이미지를 저장했고 테스트 링크를 복사했어요.")}catch(e){alert("결과 이미지를 저장했어요. 링크는 주소창에서 복사해 주세요.")}}
+function resetTest(){result.classList.add("hidden");start.classList.remove("hidden");window.scrollTo({top:0,behavior:"smooth"})}
+</script></body></html>
