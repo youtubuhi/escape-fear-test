@@ -69,16 +69,6 @@ h1{font-size:38px;line-height:1.08;margin:0 0 14px;letter-spacing:-.055em}
   .types-grid{grid-template-columns:1fr}
 }
 </style>
-
-<!-- Google Analytics 4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-G3ZCCY7Z8W0"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-G3ZCCY7Z8W0', { anonymize_ip: true });
-</script>
-
 </head>
 <body>
 <div class="app">
@@ -150,15 +140,9 @@ const TYPE_ORDER=["극쫄","극탱","삑딱쿵","창공","추격","독립구간"
 const AXES=["삑딱쿵","창공","추격","독립구간","NPC 대면"];
 let order=[],step=0,choices={},myType=null;
 
-function trackEvent(name, params={{}}){{
-  if(typeof gtag === "function"){{
-    gtag("event", name, params);
-  }}
-}}
-
 function shuffle(arr){const a=[...arr];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
 function cleanText(s){return String(s).replace(/\\n/g,"\n")}
-function begin(){trackEvent("test_start");order=shuffle(QUESTIONS);step=0;choices={};myType=null;start.classList.add("hidden");result.classList.add("hidden");typeDetail.classList.add("hidden");quiz.classList.remove("hidden");render();window.scrollTo(0,0)}
+function begin(){order=shuffle(QUESTIONS);step=0;choices={};myType=null;start.classList.add("hidden");result.classList.add("hidden");typeDetail.classList.add("hidden");quiz.classList.remove("hidden");render();window.scrollTo(0,0)}
 function render(){
   const q=order[step];
   qnum.innerHTML=`${String(step+1).padStart(2,"0")}<small> /10</small>`;
@@ -233,7 +217,7 @@ function fillAnalysis(target,r){
 }
 function finish(){
   quiz.classList.add("hidden");result.classList.remove("hidden");typeDetail.classList.add("hidden");
-  myType=classify();const r=RESULTS[myType];trackEvent("test_complete",{result_type:myType,result_name:r.name});
+  myType=classify();const r=RESULTS[myType];
   resultImage.src=r.image;resultTitle.textContent=`${r.emoji} ${r.name}`;resultOne.textContent=cleanText(r.one);example.textContent=cleanText(r.example);
   scoreList.innerHTML="";
   AXES.forEach(a=>{const v=displayScore(a),row=document.createElement("div");row.className="score";row.innerHTML=`<div class="score-top"><span>${a} 공포도</span><strong>${v}</strong></div><div class="meter"><div class="fill" style="width:${v}%"></div></div>`;scoreList.appendChild(row)});
@@ -249,7 +233,7 @@ function renderTypeGrid(){
     typesGrid.appendChild(b);
   });
 }
-function showType(type){trackEvent("view_other_type",{type_key:type,type_name:RESULTS[type]?.name||""});
+function showType(type){
   const r=RESULTS[type];
   result.classList.add("hidden");typeDetail.classList.remove("hidden");
   typeImage.src=r.image;typeTitle.textContent=`${r.emoji} ${r.name}`;typeOne.textContent=cleanText(r.one);typeExample.textContent=cleanText(r.example);
@@ -260,7 +244,7 @@ async function sharePayload(title,text,url){
   if(navigator.share){try{await navigator.share({title,text,url});return}catch(e){}}
   try{await navigator.clipboard.writeText([text,url].filter(Boolean).join("\n"));alert("공유 링크를 복사했어요.")}catch(e){}
 }
-async function shareTest(){trackEvent("test_share");await sharePayload("방탈출 공포 유형 테스트","쫄도 다 같은 쫄이 아니다 👻",location.href)}
+async function shareTest(){await sharePayload("방탈출 공포 유형 테스트","쫄도 다 같은 쫄이 아니다 👻",location.href)}
 
 function drawWrapped(ctx,text,x,y,maxWidth,lineHeight,maxLines=2){
   const chars=[...text];let line="",lines=[];
@@ -289,7 +273,7 @@ async function makeShareCanvas(){
   });
   return canvas
 }
-async function shareResultCard(){trackEvent("result_share",{result_type:myType,result_name:RESULTS[myType]?.name||""});
+async function shareResultCard(){
   const canvas=await makeShareCanvas(),blob=await new Promise(r=>canvas.toBlob(r,"image/png")),file=new File([blob],"my-escape-horror-result.png",{type:"image/png"});
   if(navigator.canShare&&navigator.canShare({files:[file]})&&navigator.share){
     try{await navigator.share({files:[file],url:location.href});return}catch(e){}
