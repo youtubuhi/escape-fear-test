@@ -277,7 +277,6 @@ async function makeShareCanvas(){
   const ctx=canvas.getContext("2d");ctx.fillStyle="#f5f1eb";ctx.fillRect(0,0,900,1500);
   const im=await loadImage(r.image);
   const imgW=510,imgH=680,x=(900-imgW)/2,y=70;
-  ctx.fillStyle="#fff";ctx.fillRect(x-2,y-2,imgW+4,imgH+4);
   const scale=Math.min(imgW/im.width,imgH/im.height),dw=im.width*scale,dh=im.height*scale;
   ctx.drawImage(im,x+(imgW-dw)/2,y+(imgH-dh)/2,dw,dh);
   let cy=805;ctx.fillStyle="#77716b";ctx.font="24px Arial";ctx.fillText("방탈출 인간연구소 · RESULT",60,cy);
@@ -310,17 +309,5 @@ window.addEventListener("load", function(){
     });
   }
 });
-</script>
-  <script>
-window.addEventListener("load", function(){
-  if(typeof gtag === "function"){
-    gtag("event", "test_page_view", {
-      test_id: "001",
-      page_location: location.href,
-      page_title: document.title
-    });
-  }
-});
-</script>
 </body>
 </html>
