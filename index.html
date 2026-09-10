@@ -315,14 +315,21 @@ async function makeShareCanvas(){
   });
   return canvas
 }
-async function shareResultCard(){trackEvent("result_share",{result_type:myType,result_name:RESULTS[myType]?.name||""});
-  const canvas=await makeShareCanvas(),blob=await new Promise(r=>canvas.toBlob(r,"image/png")),file=new File([blob],"my-escape-horror-result.png",{type:"image/png"});
-  const url=`${cleanUrl()}?r=${encodeChoices()}`;
-  if(navigator.canShare&&navigator.canShare({files:[file]})&&navigator.share){
-    try{await navigator.share({files:[file],url});return}catch(e){if(e&&e.name==="AbortError")return}
+async function shareResultCard(){
+  const r=RESULTS[myType],url=`${cleanUrl()}?r=${encodeChoices()}`;
+  trackEvent("result_share",{result_type:myType,result_name:r.name});
+  try{
+    const canvas=await makeShareCanvas(),blob=await new Promise(resolve=>canvas.toBlob(resolve,"image/png"));
+    if(!blob)throw new Error("share image creation failed");
+    const file=new File([blob],"my-escape-horror-result.png",{type:"image/png"});
+    if(navigator.share&&navigator.canShare&&navigator.canShare({files:[file]})){
+      try{await navigator.share({files:[file],url});return}catch(e){if(e&&e.name==="AbortError")return}
+    }
+    const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="my-escape-horror-result.png";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+    try{await navigator.clipboard.writeText(url);alert("결과 이미지를 저장했고 결과 링크를 복사했어요.")}catch{alert("결과 이미지를 저장했어요.")}
+  }catch{
+    await sharePayload(`${r.emoji} ${r.name}`,`${r.emoji} ${r.name}`,url);
   }
-  const a=document.createElement("a");a.href=canvas.toDataURL("image/png");a.download="my-escape-horror-result.png";a.click();
-  try{await navigator.clipboard.writeText(url);alert("결과 이미지를 저장했고 결과 링크를 복사했어요.")}catch(e){alert("결과 이미지를 저장했어요.")}
 }
 function resetTest(){history.replaceState(null,"",localStateUrl());result.classList.add("hidden");typeDetail.classList.add("hidden");start.classList.remove("hidden");quiz.classList.add("hidden");choices={};myType=null;window.scrollTo({top:0,behavior:"smooth"})}
 </script>
