@@ -118,7 +118,7 @@ h1{font-size:38px;line-height:1.08;margin:0 0 14px;letter-spacing:-.055em}
     <div class="share-actions">
       <button class="btn primary" onclick="shareResultCard()">내 결과 공유하기</button>
       <button class="btn" onclick="shareTest()">테스트 공유하기</button>
-      <button class="btn" onclick="resetTest()">다시 하기</button>
+      <button class="btn" onclick="resetTest()">테스트 다시 하기</button>
       <button class="btn" onclick="location.href='https://youtubuhi.github.io/escape-player-lab/'">다른 테스트 하러 가기</button>
     </div>
 
@@ -152,6 +152,25 @@ const RESULTS={"극쫄": {"name": "제작자 효자형", "emoji": "👑", "image
 const TYPE_ORDER=["극쫄","극탱","삑딱쿵","창공","추격","독립구간","NPC 대면"];
 const AXES=["삑딱쿵","창공","추격","독립구간","NPC 대면"];
 let order=[],step=0,choices={},myType=null;
+function cleanUrl(){return `${location.origin}${location.pathname}`}
+function localStateUrl(encoded=""){
+  const p=new URLSearchParams();
+  if(encoded)p.set("r",encoded);
+  const query=p.toString();
+  return `${location.pathname}${query?`?${query}`:""}`
+}
+function encodeChoices(){
+  return btoa(QUESTIONS.slice().sort((a,b)=>a.id-b.id).map(q=>String(choices[q.id] ?? 1)).join("")).replaceAll("=","")
+}
+function decodeChoices(value){
+  try{
+    const s=atob(value);
+    if(!/^[1-4]{10}$/.test(s))return false;
+    choices=Object.fromEntries([...s].map((n,i)=>[i,Number(n)]));
+    return true
+  }catch{return false}
+}
+
 
 function trackEvent(name, params={}){
   if(typeof gtag === "function"){
@@ -161,7 +180,7 @@ function trackEvent(name, params={}){
 
 function shuffle(arr){const a=[...arr];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
 function cleanText(s){return String(s).replace(/\\n/g,"\n")}
-function begin(){trackEvent("test_start");order=shuffle(QUESTIONS);step=0;choices={};myType=null;start.classList.add("hidden");result.classList.add("hidden");typeDetail.classList.add("hidden");quiz.classList.remove("hidden");render();window.scrollTo(0,0)}
+function begin(){history.replaceState(null,"",localStateUrl());trackEvent("test_start");order=shuffle(QUESTIONS);step=0;choices={};myType=null;start.classList.add("hidden");result.classList.add("hidden");typeDetail.classList.add("hidden");quiz.classList.remove("hidden");render();window.scrollTo(0,0)}
 function render(){
   const q=order[step];
   qnum.innerHTML=`${String(step+1).padStart(2,"0")}<small> /10</small>`;
@@ -234,13 +253,17 @@ function fillAnalysis(target,r){
   r.analysis.forEach(t=>{const p=document.createElement("p");p.textContent=cleanText(t);target.appendChild(p)});
   const c=document.createElement("p");c.className="closing";c.textContent=cleanText(r.closing);target.appendChild(c)
 }
-function finish(){
-  quiz.classList.add("hidden");result.classList.remove("hidden");typeDetail.classList.add("hidden");
-  myType=classify();const r=RESULTS[myType];trackEvent("test_complete",{result_type:myType,result_name:r.name});
+function finish({fromLink=false}={}){
+  quiz.classList.add("hidden");result.classList.remove("hidden");typeDetail.classList.add("hidden");start.classList.add("hidden");
+  myType=classify();const r=RESULTS[myType];
+  if(!fromLink){
+    trackEvent("test_complete",{result_type:myType,result_name:r.name});
+    history.replaceState(null,"",localStateUrl(encodeChoices()));
+  }
   resultImage.src=r.image;resultTitle.textContent=`${r.emoji} ${r.name}`;resultOne.textContent=cleanText(r.one);example.textContent=cleanText(r.example);
   scoreList.innerHTML="";
   AXES.forEach(a=>{const v=displayScore(a),row=document.createElement("div");row.className="score";row.innerHTML=`<div class="score-top"><span>${a} 공포도</span><strong>${v}</strong></div><div class="meter"><div class="fill" style="width:${v}%"></div></div>`;scoreList.appendChild(row)});
-  fillAnalysis(analysis,r);renderTypeGrid();window.scrollTo({top:0,behavior:"smooth"})
+  fillAnalysis(analysis,r);renderTypeGrid();window.scrollTo({top:0,behavior:fromLink?"auto":"smooth"})
 }
 function renderTypeGrid(){
   typesGrid.innerHTML="";
@@ -279,7 +302,7 @@ async function makeShareCanvas(){
   const ctx=canvas.getContext("2d");ctx.fillStyle="#f5f1eb";ctx.fillRect(0,0,900,1500);
   const im=await loadImage(r.image);
   const imgW=510,imgH=680,x=(900-imgW)/2,y=70;
-  ctx.fillStyle="#fff";ctx.fillRect(x-2,y-2,imgW+4,imgH+4);
+  
   const scale=Math.min(imgW/im.width,imgH/im.height),dw=im.width*scale,dh=im.height*scale;
   ctx.drawImage(im,x+(imgW-dw)/2,y+(imgH-dh)/2,dw,dh);
   let cy=805;ctx.fillStyle="#77716b";ctx.font="24px Arial";ctx.fillText("방탈출 인간연구소 · RESULT",60,cy);
@@ -294,25 +317,16 @@ async function makeShareCanvas(){
 }
 async function shareResultCard(){trackEvent("result_share",{result_type:myType,result_name:RESULTS[myType]?.name||""});
   const canvas=await makeShareCanvas(),blob=await new Promise(r=>canvas.toBlob(r,"image/png")),file=new File([blob],"my-escape-horror-result.png",{type:"image/png"});
+  const url=`${cleanUrl()}?r=${encodeChoices()}`;
   if(navigator.canShare&&navigator.canShare({files:[file]})&&navigator.share){
-    try{await navigator.share({files:[file],url:location.href});return}catch(e){}
+    try{await navigator.share({files:[file],url});return}catch(e){if(e&&e.name==="AbortError")return}
   }
   const a=document.createElement("a");a.href=canvas.toDataURL("image/png");a.download="my-escape-horror-result.png";a.click();
-  try{await navigator.clipboard.writeText(location.href);alert("결과 이미지를 저장했고 테스트 링크를 복사했어요.")}catch(e){alert("결과 이미지를 저장했어요.")}
+  try{await navigator.clipboard.writeText(url);alert("결과 이미지를 저장했고 결과 링크를 복사했어요.")}catch(e){alert("결과 이미지를 저장했어요.")}
 }
-function resetTest(){result.classList.add("hidden");typeDetail.classList.add("hidden");start.classList.remove("hidden");window.scrollTo({top:0,behavior:"smooth"})}
+function resetTest(){history.replaceState(null,"",localStateUrl());result.classList.add("hidden");typeDetail.classList.add("hidden");start.classList.remove("hidden");quiz.classList.add("hidden");choices={};myType=null;window.scrollTo({top:0,behavior:"smooth"})}
 </script>
-<script>
-window.addEventListener("load", function(){
-  if(typeof gtag === "function"){
-    gtag("event", "test_page_view", {
-      test_id: "001",
-      page_location: location.href,
-      page_title: document.title
-    });
-  }
-});
-</script>
+
   <script>
 window.addEventListener("load", function(){
   if(typeof gtag === "function"){
@@ -321,6 +335,12 @@ window.addEventListener("load", function(){
       page_location: location.href,
       page_title: document.title
     });
+  }
+  const encoded=new URLSearchParams(location.search).get("r");
+  if(encoded&&decodeChoices(encoded)){
+    order=[...QUESTIONS];
+    step=QUESTIONS.length;
+    finish({fromLink:true});
   }
 });
 </script>
